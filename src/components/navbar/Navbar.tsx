@@ -14,6 +14,7 @@ export const Navbar = () => {
           BusBooking
         </Link>
         <div className="flex gap-4 items-center">
+          <Link href={ROUTES.HOME}>Home</Link>
           <Link href={ROUTES.BUSES}>Buses</Link>
           {isAuthenticated ? (
             <>
