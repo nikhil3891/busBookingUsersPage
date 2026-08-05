@@ -2,9 +2,9 @@
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white p-8 mt-12">
+    <footer className="bg-gray-800 text-white md:p-8 p-8 mt-12">
       <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           <div>
             <h3 className="font-bold mb-4">About</h3>
             <p>Bus Booking platform for affordable travel</p>

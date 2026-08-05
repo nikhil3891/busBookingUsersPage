@@ -9,11 +9,12 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-blue-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex flex-col gap-3 md:flex-row md:justify-between md:items-center">
         <Link href={ROUTES.HOME} className="text-2xl font-bold">
           BusBooking
         </Link>
-        <div className="flex gap-4 items-center">
+
+        <div className="flex flex-wrap items-center justify-center gap-3 md:justify-end">
           <Link href={ROUTES.HOME}>Home</Link>
           <Link href={ROUTES.BUSES}>Buses</Link>
           {isAuthenticated ? (
