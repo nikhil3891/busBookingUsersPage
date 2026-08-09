@@ -7,8 +7,8 @@ const columns = [
     title: 'Company',
     links: [
       { label: 'About RoadPass', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Become an Operator', href: '#' },
+      // { label: 'Careers', href: '#' },
+      { label: 'Become an Operator Add your own bus', href: '#' },
       { label: 'Blog', href: '#' },
     ],
   },

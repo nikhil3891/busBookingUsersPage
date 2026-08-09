@@ -11,7 +11,7 @@ export const Navbar = () => {
     <nav className="bg-blue-600 text-white p-4">
       <div className="container mx-auto flex flex-col gap-3 md:flex-row md:justify-between md:items-center">
         <Link href={ROUTES.HOME} className="text-2xl font-bold">
-          BusBooking
+          RoadPass
         </Link>
 
         <div className="flex flex-wrap items-center justify-center gap-3 md:justify-end">
