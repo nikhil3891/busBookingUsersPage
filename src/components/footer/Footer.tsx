@@ -34,7 +34,7 @@ const columns = [
 
 export const Footer = () => {
   return (
-    <footer className="mt-24 border-t border-line bg-midnight text-white">
+    <footer className="mt-24 border-t border-line bg-midnight text-blue">
       <div className="container mx-auto grid grid-cols-1 gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <Link href={ROUTES.HOME} className="flex items-center gap-2 font-display text-xl font-bold">
@@ -43,12 +43,12 @@ export const Footer = () => {
             </span>
             RoadPass
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-blue">
             Search, compare and book bus tickets from operators across the country. Live seat maps, instant e-tickets, easy cancellations.
           </p>
           <div className="mt-5 flex gap-3">
             {['f', 'in', 'x'].map((label) => (
-              <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white/80 hover:bg-white/20">
+              <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full text-blue text-xs font-semibold text-blue/50 hover:bg-blue/20">
                 {label}
               </span>
             ))}
@@ -57,11 +57,11 @@ export const Footer = () => {
 
         {columns.map((col) => (
           <div key={col.title}>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-white/50">{col.title}</h3>
+            <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-blue">{col.title}</h3>
             <ul className="mt-4 space-y-2.5">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-white/70 hover:text-amber">
+                  <Link href={l.href} className="text-sm text-blue hover:text-amber">
                     {l.label}
                   </Link>
                 </li>
@@ -72,7 +72,7 @@ export const Footer = () => {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container mx-auto flex flex-col gap-3 px-4 py-5 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
+        <div className="container mx-auto flex flex-col gap-3 px-4 py-5 text-sm text-blue md:flex-row md:items-center md:justify-between">
           <p>&copy; {new Date().getFullYear()} RoadPass Technologies. All rights reserved.</p>
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5"><Phone size={14} /> 1800-123-4567</span>
