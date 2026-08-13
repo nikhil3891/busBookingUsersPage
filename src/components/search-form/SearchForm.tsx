@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useSearchStore } from '@/store/searchStore';
 import { ROUTES } from '@/constants/routes';
 import { useRouter } from 'next/navigation';
+import { CityAutocomplete } from '@/components/city-autocomplete/CityAutocomplete';
 
 export const SearchForm = () => {
   const router = useRouter();

@@ -9,4 +9,5 @@ export const ROUTES = {
   MY_BOOKINGS: '/my-bookings',
   LOGIN: '/login',
   REGISTER: '/register',
+  CANCELLATION_POLICY: '/cancellation-policy',
 } as const;

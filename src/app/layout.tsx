@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'BusBooking - Book Your Tickets',
+  title: 'RoadPass - Book Your Tickets',
   description: 'Easy and affordable bus ticket booking platform',
 };
 
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-gray-50">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen pt-22">{children}</main>
         <Footer />
       </body>
     </html>

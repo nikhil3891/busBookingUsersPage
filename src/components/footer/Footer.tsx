@@ -16,7 +16,7 @@ const columns = [
     title: 'Support',
     links: [
       { label: 'Help Centre', href: '#' },
-      { label: 'Cancellation Policy', href: '#' },
+      { label: 'Cancellation Policy', href: '/cancellation-policy' },
       { label: 'Track My Bus', href: '#' },
       { label: 'Report an Issue', href: '#' },
     ],
@@ -34,21 +34,21 @@ const columns = [
 
 export const Footer = () => {
   return (
-    <footer className="mt-24 border-t border-line bg-midnight text-blue">
+    <footer className="mt-24 border-t border-white/10 bg-slate-900 text-white">
       <div className="container mx-auto grid grid-cols-1 gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
-          <Link href={ROUTES.HOME} className="flex items-center gap-2 font-display text-xl font-bold">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber text-ink">
+            <Link href={ROUTES.HOME} className="flex items-center gap-2 font-display text-xl font-bold">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-black">
               <Bus size={18} strokeWidth={2.5} />
             </span>
             RoadPass
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-blue">
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white">
             Search, compare and book bus tickets from operators across the country. Live seat maps, instant e-tickets, easy cancellations.
           </p>
           <div className="mt-5 flex gap-3">
             {['f', 'in', 'x'].map((label) => (
-              <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full text-blue text-xs font-semibold text-blue/50 hover:bg-blue/20">
+              <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full text-white text-xs font-semibold text-white/50 hover:bg-white/10">
                 {label}
               </span>
             ))}
@@ -57,11 +57,11 @@ export const Footer = () => {
 
         {columns.map((col) => (
           <div key={col.title}>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-blue">{col.title}</h3>
+            <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-white">{col.title}</h3>
             <ul className="mt-4 space-y-2.5">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-blue hover:text-amber">
+                  <Link href={l.href} className="text-sm text-white hover:text-amber-400">
                     {l.label}
                   </Link>
                 </li>
@@ -72,7 +72,7 @@ export const Footer = () => {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container mx-auto flex flex-col gap-3 px-4 py-5 text-sm text-blue md:flex-row md:items-center md:justify-between">
+        <div className="container mx-auto flex flex-col gap-3 px-4 py-5 text-sm text-white md:flex-row md:items-center md:justify-between">
           <p>&copy; {new Date().getFullYear()} RoadPass Technologies. All rights reserved.</p>
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5"><Phone size={14} /> 1800-123-4567</span>
