@@ -54,9 +54,11 @@ export const Footer = () => {
                   {label}
                 </li>
               ))}
-              <Link href={ROUTES.CANCELLATION_POLICY} className="hover:text-white hover:underline">
-                Cancellation Policy
-              </Link>
+              <li>
+                <Link href={ROUTES.CANCELLATION_POLICY} className="hover:text-white hover:underline">
+                  Cancellation Policy
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
