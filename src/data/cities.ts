@@ -2,6 +2,13 @@
  * Master city list used by the search form's autocomplete.
  * TO ADD A CITY: add a new string to this array. Nothing else needs to change.
  */
+
+export interface City {
+  name: string;
+  state: string;
+  isPopular?: boolean; // shows in "Popular Routes" style shortcuts
+}
+
 export const INDIAN_CITIES: string[] = [
   'Mumbai', 'Delhi', 'Bengaluru', 'Hyderabad', 'Chennai', 'Kolkata',
   'Pune', 'Ahmedabad', 'Jaipur', 'Surat', 'Lucknow', 'Kanpur',

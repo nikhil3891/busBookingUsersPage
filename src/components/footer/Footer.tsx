@@ -1,83 +1,82 @@
+'use client';
+
 import Link from 'next/link';
-import { Bus, Mail, Phone } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useSearchStore } from '@/store/searchStore';
 import { ROUTES } from '@/constants/routes';
 
-const columns = [
-  {
-    title: 'Company',
-    links: [
-      { label: 'About RoadPass', href: '#' },
-      // { label: 'Careers', href: '#' },
-      { label: 'Become an Operator Add your own bus', href: '#' },
-      { label: 'Blog', href: '#' },
-    ],
-  },
-  {
-    title: 'Support',
-    links: [
-      { label: 'Help Centre', href: '#' },
-      { label: 'Cancellation Policy', href: '/cancellation-policy' },
-      { label: 'Track My Bus', href: '#' },
-      { label: 'Report an Issue', href: '#' },
-    ],
-  },
-  {
-    title: 'Popular Routes',
-    links: [
-      { label: 'Bengaluru to Chennai', href: '#' },
-      { label: 'Delhi to Manali', href: '#' },
-      { label: 'Mumbai to Pune', href: '#' },
-      { label: 'Hyderabad to Bengaluru', href: '#' },
-    ],
-  },
+const COMING_SOON = [
+  'About RoadPass',
+  'Careers',
+  'Become an Operator',
+  'Blog',
+  'Help Centre',
+  // 'Cancellation Policy',
+  'Track My Bus',
+  'Report an Issue',
+];
+
+const POPULAR_ROUTES: { label: string; source: string; destination: string }[] = [
+  { label: 'Bengaluru to Chennai', source: 'Bengaluru', destination: 'Chennai' },
+  { label: 'Delhi to Manali', source: 'Delhi', destination: 'Manali' },
+  { label: 'Mumbai to Pune', source: 'Mumbai', destination: 'Pune' },
+  { label: 'Hyderabad to Bengaluru', source: 'Hyderabad', destination: 'Bengaluru' },
 ];
 
 export const Footer = () => {
-  return (
-    <footer className="mt-24 border-t border-white/10 bg-slate-900 text-white">
-      <div className="container mx-auto grid grid-cols-1 gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
-        <div>
-            <Link href={ROUTES.HOME} className="flex items-center gap-2 font-display text-xl font-bold">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400 text-black">
-              <Bus size={18} strokeWidth={2.5} />
-            </span>
-            RoadPass
-          </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white">
-            Search, compare and book bus tickets from operators across the country. Live seat maps, instant e-tickets, easy cancellations.
-          </p>
-          <div className="mt-5 flex gap-3">
-            {['f', 'in', 'x'].map((label) => (
-              <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full text-white text-xs font-semibold text-white/50 hover:bg-white/10">
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
+  const router = useRouter();
+  const { setFilters } = useSearchStore();
 
-        {columns.map((col) => (
-          <div key={col.title}>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-wide text-white">{col.title}</h3>
-            <ul className="mt-4 space-y-2.5">
-              {col.links.map((l) => (
-                <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-white hover:text-amber-400">
-                    {l.label}
-                  </Link>
+  const goToRoute = (source: string, destination: string) => {
+    setFilters({ source, destination });
+    router.push(ROUTES.BUSES);
+  };
+
+  return (
+    <footer className="bg-gray-800 text-white p-8 mt-12">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="font-bold mb-4">Company</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              {COMING_SOON.slice(0, 4).map((label) => (
+                <li key={label} className="text-gray-500 cursor-not-allowed" title="Coming soon">
+                  {label}
                 </li>
               ))}
             </ul>
           </div>
-        ))}
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="container mx-auto flex flex-col gap-3 px-4 py-5 text-sm text-white md:flex-row md:items-center md:justify-between">
-          <p>&copy; {new Date().getFullYear()} RoadPass Technologies. All rights reserved.</p>
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5"><Phone size={14} /> 1800-123-4567</span>
-            <span className="flex items-center gap-1.5"><Mail size={14} /> support@roadpass.in</span>
+          <div>
+            <h3 className="font-bold mb-4">Support</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              {COMING_SOON.slice(4).map((label) => (
+                <li key={label} className="text-gray-500 cursor-not-allowed" title="Coming soon">
+                  {label}
+                </li>
+              ))}
+              <Link href={ROUTES.CANCELLATION_POLICY} className="hover:text-white hover:underline">
+                Cancellation Policy
+              </Link>
+            </ul>
           </div>
+          <div>
+            <h3 className="font-bold mb-4">Popular Routes</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
+              {POPULAR_ROUTES.map((route) => (
+                <li key={route.label}>
+                  <button
+                    onClick={() => goToRoute(route.source, route.destination)}
+                    className="hover:text-white hover:underline text-left"
+                  >
+                    {route.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} RoadPass Technologies. All rights reserved.</p>
         </div>
       </div>
     </footer>
